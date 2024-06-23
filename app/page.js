@@ -17,6 +17,14 @@ const page = () => {
     copytask.splice(i, 1)
     setmainTask(copytask)
   } 
+
+  const completeHandler = (i) => {
+    let copytask =  [...mainTask]
+    copytask.splice(i, 1)
+    setmainTask(copytask)
+  } 
+
+
   let renderTask = <h2>No Task Available</h2>
   
     if(mainTask.length > 0){
@@ -30,6 +38,9 @@ const page = () => {
           <button onClick={()=>{
             deleteHandler(i)
           }} className='text-white bg-red-700 hover:bg-red-800  font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900'>Delete</button>
+          <button onClick={()=>{
+            completeHandler(i)
+          }} className='text-white bg-green-700 hover:bg-green-800  font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-900'>Completed</button>
         </li>
       );
     });
